@@ -13,12 +13,13 @@ const Page: React.FC = () => {
 	const [buttonDisabled, setButtonDisabled] = useState(true);
 	const [loading, setLoading] = useState(false);
 	const router = useRouter();
-	const onSignUp = async () => {
-		// console.log("data sent to the server", state);
+	const onLogin = async () => {
+		console.log("data sent to the server", state);
 		try {
 			setLoading(true);
-			const response = await axios.post("http://localhost:3000/api/users/login", state);
-			// console.log("data received from the server", response);
+			const response = await axios.post(`http://localhost:3000/api/users/login`, state);
+			// console.log("data send to the server url", process.env.BASE_URL);
+			console.log("data received from the server", response);
 			// setLoading(false);
 			router.push("/profile");
 		} catch (err: any) {
@@ -91,7 +92,7 @@ const Page: React.FC = () => {
 							<div className='w-full flex flex-grow flex-col py-4 px-6'>
 								<button
 									className=' flex-grow p-2 text-dark text-sm tracking-[0.5em] rounded-2xl bg-blue-400 transition duration-200 ease-in-out hover:shadow-white hover:bg-blue-500 hover:text-white hover:drop-shadow-lg'
-									onClick={onSignUp}
+									onClick={onLogin}
 								>
 									SUBMIT
 								</button>

@@ -9,7 +9,7 @@ type jasonValueArrays = Array<jasonValueObjects>;
 type T = jasonValueObjects | jasonValueArrays;
 
 async function getUsers(): Promise<T | unknown> {
-  let data = await fetch("http:localhost:3000/api/users");
+  let data = await fetch(`${process.env.BASE_URL}/api/users`);
   data = await data.json();
   // console.log(data);
   return data;

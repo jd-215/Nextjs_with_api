@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const getUserData = async (): Promise<{}> => {
     let responseData: any;
     try {
-        const response = await axios.get("http://localhost:3000/api/users/id");
+        const response = await axios.get(`${process.env.BASE_URL}/api/users/id`);
         // console.log("data received from the server", response.data);
         responseData = response.data;
     } catch (err: any) {

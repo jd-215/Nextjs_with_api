@@ -9,12 +9,12 @@ connectToDB();
 export async function POST(request: NextRequest) {
 	try {
 		const data = await request.json();
-		// console.log(data);
+		console.log(data);
         const { email, password } = data;
 		// check if username exist
 
 		const user = await UserModel.findOne({email : email});
-        // console.log("existing user details if available - ", user);
+        console.log("existing user details if available - ", user);
 		if (!user) {
 			return new NextResponse(JSON.stringify({ message: "user not found" }), {
 				status: 400,
@@ -43,8 +43,7 @@ export async function POST(request: NextRequest) {
 			email: user.email,
 		};
 		// create token
-		const { JWT_SECRET_KEY } = process.env;
-		const tokenData = jwt.sign(token, JWT_SECRET_KEY!, {
+		const tokenData = jwt.sign(token, process.env.JWT_SECRET_KEY!, {
 			expiresIn: "1d",
 		});
 		const response = new NextResponse(

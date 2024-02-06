@@ -43,7 +43,7 @@ export default function VerifyEmailPage() {
 	const onSubmit = async () => {
 		try {
 			const response = await axios.post(
-				`http://localhost:3000/api/users/recovery/resetpassword`,
+				`${process.env.BASE_URL}/api/users/recovery/resetpassword`,
 				{token: token, password: pasword }
 			);
 			// console.log(response.data);

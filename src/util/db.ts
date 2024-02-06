@@ -1,5 +1,4 @@
-const {USER_NAME, PASSWORD} = process.env
-export const CONNECT_DB_URL: string =`mongodb+srv://${USER_NAME}:${PASSWORD}@cluster-mern-app.8lriu.mongodb.net/localExp?retryWrites=true&w=majority`
+export const CONNECT_DB_URL: string =`mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@cluster-mern-app.8lriu.mongodb.net/localExp?retryWrites=true&w=majority`
 
 
 

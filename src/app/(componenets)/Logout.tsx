@@ -14,7 +14,7 @@ const Logout: FC = () => {
 
         setState(true);
         try {
-            const response = await axios.get("http://localhost:3000/api/users/logout");
+            const response = await axios.get(`${process.env.BASE_URL}/api/users/logout`);
             
             // console.log("data received from the server", response.data?.success);
             if(response.data?.success === true) {

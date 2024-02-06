@@ -18,7 +18,7 @@ const Page: React.FC = () => {
 		// console.log("data sent to the server", state);
 		try {
 			setLoading(true);
-			const response = await axios.post("http://localhost:3000/api/users/recovery", state)
+			const response = await axios.post(`${process.env.BASE_URL}/api/users/recovery`, state)
 			// console.log("data received from the server", response.data);
 			// setLoading(false);
 			// router.push("/profile");

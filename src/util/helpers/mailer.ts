@@ -46,7 +46,7 @@ export const sendMail = async (email: string, emailType:string, userID: string )
         to: email,
         emailType: 'Reset Password',
         subject: emailType === "VERIFY" ? "Verify Your Email" : "Reset Your Password",
-        html: `<p> Click <a href=${process.env.DOMAIN}/login/resetpassword?token=${hasedToken}>here</a> to reset your password</p>`
+        html: `<p> Click <a href=${process.env.BASE_URL}/login/resetpassword?token=${hasedToken}>here</a> to reset your password</p>`
     }
 
 
